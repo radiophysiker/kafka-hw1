@@ -1,0 +1,15 @@
+# Входим в контейнер
+docker exec -it {container_id} bash
+
+# Команда для создания топика:
+kafka-topics.sh --create --bootstrap-server localhost:9094 --replication-factor 2 --partitions 3 --topic my-topic
+// Created topic my-topic.
+
+# Вывод подробной информации о топике my-topic:
+kafka-topics.sh --describe --topic my-topic --bootstrap-server localhost:9094
+
+## Вывод:
+## Topic: my-topic TopicId: vzxbyx6wTI-dveYkDdSfLQ PartitionCount: 3       ReplicationFactor: 2    Configs: 
+## Topic: my-topic Partition: 0    Leader: 0       Replicas: 0,1   Isr: 0,1        Elr:    LastKnownElr: 
+## Topic: my-topic Partition: 1    Leader: 1       Replicas: 1,0   Isr: 1,0        Elr:    LastKnownElr: 
+## Topic: my-topic Partition: 2    Leader: 1       Replicas: 1,0   Isr: 1,0        Elr:    LastKnownElr: 
